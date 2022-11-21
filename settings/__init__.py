@@ -26,7 +26,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1", "purbeurre-website.herokuapp.com", "localhost", "138.68.146.1"]
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -55,7 +55,8 @@ ROOT_URLCONF = 'purbeurre_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-	'DIRS': [os.path.join(BASE_DIR, 'purbeurre_website/templates'), ],
+	# 'DIRS': [os.path.join(BASE_DIR, 'purbeurre_website/templates'), ],
+	'DIRS':[]
         # 'DIRS': ['purbeurre_website/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -143,10 +144,4 @@ MEDIA_URL = '/images/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# # Activate heroku settings for Django
-# if os.environ.get("ENV") == "production":
-#     import django_on_heroku
-#
-#     django_on_heroku.settings(locals())
 

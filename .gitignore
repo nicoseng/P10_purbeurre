@@ -3,3 +3,6 @@ htmlcov
 venv
 .idea
 purbeurre_website/tests/functional_tests/chromedriver
+settings/production.py
+__pycache__
+staticfiles
