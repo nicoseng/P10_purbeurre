@@ -55,8 +55,7 @@ ROOT_URLCONF = 'purbeurre_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-	# 'DIRS': [os.path.join(BASE_DIR, 'purbeurre_website/templates'), ],
-	'DIRS':[]
+        'DIRS': [os.path.join(BASE_DIR, 'purbeurre_website/templates'), ],
         # 'DIRS': ['purbeurre_website/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
