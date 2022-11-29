@@ -20,22 +20,31 @@ class TestProduct(TestCase):
             category_name="Snacks",
             category_url="https://fr.openfoodfacts.org/categorie/snacks?json=1"
         )
-
+        self.products_list = [
+                {'categories': 'Snacks, Snacks sucrés, Cacao et dérivés, Confiseries, Confiseries chocolatées, Bonbons de chocolat, Truffes en chocolat',
+                 'name': "Chocolate Truffles with Baileys",
+                 'nutriscore': 'c',
+                 'image': 'https://images.openfoodfacts.org/images/products/335/382/001/2379/front_fr.18.200.jpg',
+                 'ingredients': '',
+                 'url': 'https://fr.openfoodfacts.org/produit/5099872017051/chocolate-truffles-with-baileys'
+                 },
+                {'categories': 'Snacks, Snacks sucrés, Cacao et dérivés, Confiseries, Confiseries chocolatées, Bonbons de chocolat, Truffes en chocolat',
+                 'name': 'Mini blinis',
+                 'nutriscore': 'd',
+                 'image': 'https://images.openfoodfacts.org/images/products/335/382/001/2379/front_fr.18.400.jpg',
+                 'ingredients': '',
+                 'url': 'https://fr.openfoodfacts.org/produit/3353820012379/mini-blinis-l-apero-du-poissonnier'
+                 }
+        ]
     def test_extract_products(self):
 
         test_category_table = Category.objects.all()
-        products_list = self.product_imp.extract_products(test_category_table, 1)
-        expected_value = [
-            {'categories': products_list[0]["categories"],
-             'name':products_list[0]["name"],
-             'nutriscore': products_list[0]["nutriscore"],
-             'image': products_list[0]["image"],
-             'ingredients':products_list[0]["ingredients"],
-             'url':products_list[0]["url"]
-             }
-        ]
-
-        assert products_list == expected_value
+        self.product_imp.extract_products(test_category_table, 1)
+        assert self.products_list[0]["name"] == "Chocolate Truffles with Baileys"
+        assert self.products_list[0]["nutriscore"] == "c"
+        assert self.products_list[0]["image"] == "https://images.openfoodfacts.org/images/products/335/382/001/2379/front_fr.18.200.jpg"
+        assert self.products_list[0]["ingredients"] == ""
+        assert self.products_list[0]["url"] == "https://fr.openfoodfacts.org/produit/5099872017051/chocolate-truffles-with-baileys"
 
     def test_inject_product_in_database(self):
         products_list = [
