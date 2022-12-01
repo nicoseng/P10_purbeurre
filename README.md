@@ -2,7 +2,7 @@
 
 Code source : https://github.com/nicoseng/P10_purbeurre
 Programme rédigé sous Python3. Projet sous Virtual Env et Git 
-Adresse de l’application web sur heroku : http://138.68.146.1/
+Adresse de l’application web : http://138.68.146.1/
 
 # I°) Téléchargez le projet sur votre répertoire local
 
