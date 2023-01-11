@@ -37,6 +37,7 @@ class TestProduct(TestCase):
                  'url': 'https://fr.openfoodfacts.org/produit/3353820012379/mini-blinis-l-apero-du-poissonnier'
                  }
         ]
+<<<<<<< HEAD
 
     def test_extract_product(self):
         test_category_table = Category.objects.all()
@@ -46,6 +47,19 @@ class TestProduct(TestCase):
         assert self.products_list[0]["image"] == "https://images.openfoodfacts.org/images/products/335/382/001/2379/front_fr.18.200.jpg"
         assert self.products_list[0]["ingredients"] == ""
         assert self.products_list[0]["url"] == "https://fr.openfoodfacts.org/produit/5099872017051/chocolate-truffles-with-baileys"
+=======
+
+    def test_extract_products(self):
+
+        test_category_table = Category.objects.all()
+        self.product_imp.extract_products(test_category_table, 1)
+        assert self.products_list[0]["name"] == "Chocolate Truffles with Baileys"
+        assert self.products_list[0]["nutriscore"] == "c"
+        assert self.products_list[0]["image"] == "https://images.openfoodfacts.org/images/products/335/382/001/2379/front_fr.18.200.jpg"
+        assert self.products_list[0]["ingredients"] == ""
+        assert self.products_list[0]["url"] == "https://fr.openfoodfacts.org/produit/5099872017051/chocolate-truffles-with-baileys"
+
+>>>>>>> 9b95908dad08c9e8510bfbe60286d49b0c929262
 
     def test_inject_product_in_database(self):
         products_list = [

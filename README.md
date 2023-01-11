@@ -43,4 +43,8 @@ python manage.py createsuperuser
 ```
 puis suivre les instructions fournies par la suite (username, password, etc.) 
 
+<<<<<<< HEAD
 Rendez-vous dans http://138.68.146.1/admin afin de pouvoir vous connecter avec votre username et votre password nouvellement créées.# P11_purbeurre
+=======
+Rendez-vous dans http://138.68.146.1/admin afin de pouvoir vous connecter avec votre username et votre password nouvellement créées.
+>>>>>>> 9b95908dad08c9e8510bfbe60286d49b0c929262

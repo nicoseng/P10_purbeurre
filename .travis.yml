@@ -16,10 +16,18 @@ services:
 branches:
   only:
     - staging
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9b95908dad08c9e8510bfbe60286d49b0c929262
 env:
   global:
     - PGPORT=5432
 script:
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9b95908dad08c9e8510bfbe60286d49b0c929262
   # Step 2 : Installing libraries needed
   - pip install -r requirements.txt
   - pip install six
@@ -43,9 +51,17 @@ script:
   - python manage.py collectstatic --noinput
 
   # Step 5 : Getting Chromedriver
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9b95908dad08c9e8510bfbe60286d49b0c929262
   - wget https://chromedriver.storage.googleapis.com/107.0.5304.62/chromedriver_linux64.zip
   - unzip chromedriver_linux64.zip -d /home/travis/build/nicoseng/P10_purbeurre/purbeurre_website/tests/functional_tests/
   - export CHROME_BIN=chromium-browser
 
   # Step 6 : Testing the application
+<<<<<<< HEAD
   - pytest
+=======
+  - pytest
+>>>>>>> 9b95908dad08c9e8510bfbe60286d49b0c929262

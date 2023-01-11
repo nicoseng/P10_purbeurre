@@ -45,3 +45,7 @@ class Command(BaseCommand):
                 Product.objects.all().delete()
                 self.product_imported.inject_product_in_database(self.products_list, self.category_table)
                 self.stdout.write("Mise à jour des produits effectuée.")
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9b95908dad08c9e8510bfbe60286d49b0c929262

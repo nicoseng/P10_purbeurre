@@ -15,7 +15,7 @@ from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
@@ -24,13 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False if os.environ.get("ENV", "development") == "production" else True
+DEBUG = True
 
-<<<<<<< HEAD
-ALLOWED_HOSTS = ["127.0.0.1", "purbeurre-website.herokuapp.com", "localhost", "138.68.146.1"]
-=======
-ALLOWED_HOSTS = ["127.0.0.1", "purbeurre-website.herokuapp.com", "localhost","138.68.146.1"]
->>>>>>> 9b95908dad08c9e8510bfbe60286d49b0c929262
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -42,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'purbeurre_website',
-
 ]
 
 MIDDLEWARE = [
@@ -60,7 +55,8 @@ ROOT_URLCONF = 'purbeurre_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'purbeurre_website/templates'), ],
+	# 'DIRS': [os.path.join(BASE_DIR, 'purbeurre_website/templates'), ],
+	'DIRS':[]
         # 'DIRS': ['purbeurre_website/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -80,41 +76,17 @@ WSGI_APPLICATION = 'purbeurre_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-if os.environ.get("ENV", "development") == "production":
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'ocr_p10_purbeurre_bdd',
-            'USER': 'nsengmany',
-            'PASSWORD': 'lunaires',
-            'HOST': 'localhost',
-            'PORT': '5432',
-        }
-    }
-    # old bdd heroku
-    # DATABASES = {
-    #     'default': {
-    #         'ENGINE': 'django.db.backends.postgresql',
-    #         'NAME': 'd9c2o07osucgdl',
-    #         'USER': 'fkaxmioupwjozl',
-    #         'PASSWORD': 'cfc04da737ac71b565437a05e84bc1ab7ba7ecac36ac2df079c7af787a745cfa',
-    #         'HOST': 'purbeurre-website.herokuapp.com',
-    #         'PORT': '5432',
-    #     }
-    # }
 
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'purbeurre_db',
-            'USER': 'postgres',
-            'PASSWORD': 'a8ln17',
-            'HOST': '127.0.0.1',
-            'PORT': '5432',
-        }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'ocr_p10_purbeurre_bdd',
+        'USER': 'nsengmany',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': '5432',
     }
-
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -149,21 +121,27 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
-if os.environ.get("ENV", "development") == "production":
-    STATIC_URL = '/staticfiles/'
-    STATICFILES_DIRS = [os.path.join(BASE_DIR, 'purbeurre_website/static'), ]
-    STATIC_ROOT = os.path.join(BASE_DIR, '../P10_purbeurre/staticfiles')
-    MEDIA_URL = '/images/'
 
-else:
-    STATIC_URL = 'static/'
-    STATICFILES_DIRS = [os.path.join(BASE_DIR, 'purbeurre_website/static'), ]
-    STATIC_ROOT = os.path.join(BASE_DIR, '../purbeurre/staticfiles')
-    MEDIA_URL = '/images/'
+STATIC_URL = 'static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'purbeurre_website/static'), ]
+STATIC_ROOT = os.path.join(BASE_DIR, '../purbeurre/staticfiles')
+MEDIA_URL = '/images/'
+
+
+#if os.environ.get("ENV", "development") == "production":
+#   STATIC_URL = '/staticfiles/'
+#   STATICFILES_DIRS = [os.path.join(BASE_DIR, 'purbeurre_website/static'), ]
+#   STATIC_ROOT = os.path.join(BASE_DIR, '../P10_purbeurre/staticfiles')
+#   MEDIA_URL = '/images/'
+
+#else:
+#    STATIC_URL = 'static/'
+#    STATICFILES_DIRS = [os.path.join(BASE_DIR, 'purbeurre_website/static'), ]
+#    STATIC_ROOT = os.path.join(BASE_DIR, '../purbeurre/staticfiles')
+#    MEDIA_URL = '/images/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 
