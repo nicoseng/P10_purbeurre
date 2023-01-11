@@ -2,7 +2,6 @@ from django.contrib.auth.models import User
 from django.test import TestCase
 from purbeurre_website.models import Category, Product, Favourite
 
-
 class TestModels(TestCase):
 
     def setUp(self):

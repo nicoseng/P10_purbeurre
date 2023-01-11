@@ -27,6 +27,15 @@ class ProductAdmin(admin.ModelAdmin):
                     'product_url')
 
 
+# class CommentAdmin(admin.ModelAdmin):
+#     list_display = ('user_id',
+#                     'product_id',
+#                     'comment',
+#                     'rating',
+#                     'date')
+
+
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Favourite, FavouriteAdmin)
+

@@ -39,3 +39,11 @@ class Favourite(models.Model):
     substitute_name = models.fields.TextField(max_length=1000, null=True)
     substitute_image = models.fields.TextField(max_length=1000, null=True)
     substitute_nutriscore = models.fields.CharField(max_length=1000)
+
+
+# class Comment(models.Model):
+#     user_id = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+#     product_id = models.ForeignKey(Product, on_delete=models.CASCADE, null=True)
+#     comment = models.TextField(max_length=500, null=True)
+#     rating = models.IntegerField(default=0, null=True)
+#     date = models.DateTimeField(auto_now_add=True)
